@@ -13,7 +13,6 @@ import {
   Palette,
   Zap,
   Layers,
-  FileText,
   CreditCard,
   Paintbrush,
   Rocket,
@@ -54,7 +53,7 @@ export default function Home() {
     { label: "Brand Kit", href: "/products/brand-kit", Icon: Boxes },
   ] as const;
 
-  // 🔁 Products — ClearBooks + Brand Kit (Coming soon)
+  // ✅ Products — ensure EVERY card has comingSoon (true/false)
   const productCards = [
     {
       href: "/products/clearbooks",
@@ -63,6 +62,13 @@ export default function Home() {
       Icon: BarChart3, // analytics vibe
       badge: "Live",
       rightIcon: ReceiptText, // subtle hint to billing
+
+      // ✅ ADDED so TS stops complaining
+      comingSoon: false,
+
+      // ✅ optional fields included to stabilize the union type
+      bullets: undefined as string[] | undefined,
+      kicker: undefined as string | undefined,
     },
     {
       href: "/products/brand-kit",
@@ -72,6 +78,10 @@ export default function Home() {
       badge: "Coming soon",
       rightIcon: Hourglass,
       comingSoon: true,
+
+      // ✅ optional fields included to stabilize the union type
+      bullets: undefined as string[] | undefined,
+      kicker: undefined as string | undefined,
     },
   ] as const;
 
