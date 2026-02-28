@@ -29,10 +29,10 @@ export default function Home() {
   const [open, setOpen] = useState(false);
 
   const fadeUp = {
-    initial: { opacity: 0, y: 12 },
+    initial: { opacity: 0, y: 40 },
     whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true, margin: "-10% 0px" },
-    transition: { duration: 0.45, ease: "easeOut" },
+    viewport: { once: true, margin: "-50px" },
+    transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
   };
 
   const features = [
@@ -328,7 +328,7 @@ export default function Home() {
                   </div>
                 </div>
               </motion.a>
-            )
+            ),
           )}
         </div>
       </Section>
