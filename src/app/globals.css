@@ -1,0 +1,127 @@
+@import "tailwindcss";
+
+/* ========= THEME TOKENS (add or replace these) ========= */
+:root {
+  /* existing base tokens … */
+  --bg: #ffffff;
+  --text: #0a1f44; /* navy */
+  --muted: #4b5b70;
+  --border: rgba(75, 91, 112, 0.2);
+  --accent: #00c2a8;
+  --card: rgba(255, 255, 255, 0.75);
+  --shadow: 0 8px 24px rgba(10, 31, 68, 0.06);
+
+  /* Buttons (light) */
+  --btn-primary-bg: #0a1f44; /* navy */
+  --btn-primary-text: #ffffff; /* white on navy */
+  --btn-ghost-border: var(--text);
+
+  /* Section CTA (light) */
+  --cta-bg: linear-gradient(180deg, #f7fbff 0%, #ffffff 100%);
+  --cta-text: #0a1f44;
+  --cta-btn-bg: #0a1f44; /* navy button in light */
+  --cta-btn-text: #ffffff;
+}
+
+:root[data-theme="dark"] {
+  /* existing dark tokens … */
+  --bg: #0b1220;
+  --text: #e8eef6;
+  --muted: #a9b4c2;
+  --border: rgba(168, 179, 196, 0.18);
+  --accent: #13e3cb;
+  --card: rgba(17, 24, 39, 0.6);
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+
+  /* Buttons (dark) */
+  --btn-primary-bg: var(--accent); /* teal */
+  --btn-primary-text: #041014; /* dark text on teal */
+
+  /* Section CTA (dark) */
+  --cta-bg: linear-gradient(180deg, #0b1220 0%, #0e172a 100%);
+  --cta-text: #e8eef6;
+  --cta-btn-bg: var(--accent); /* teal button in dark */
+  --cta-btn-text: #041014;
+}
+
+/* ========= Button utilities ========= */
+.btn {
+  display: inline-block;
+  border-radius: 12px;
+  padding: 0.75rem 1.25rem;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.btn:active {
+  transform: translateY(1px);
+}
+.btn-primary {
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+}
+.btn-ghost {
+  border: 1px solid var(--btn-ghost-border);
+  color: var(--text);
+  background: transparent;
+}
+.btn:hover {
+  opacity: 0.9;
+}
+
+/* Utilities for small, classy motion */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+.float {
+  animation: float 5s ease-in-out infinite;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+/* subtle custom animations */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+.float {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes spin-slower {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.spin-slower {
+  animation: spin-slower 10s linear infinite;
+}
